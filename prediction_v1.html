@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MCGG Predictor V1 - By Revalotur</title>
+    <title>MCGG Predictor V6 - Continuous Cycle</title>
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -152,11 +152,11 @@
 </head>
 <body>
 
-    <h1>♟️ MCGG Predictor V1</h1>
-    <p style="text-align: center; font-size: 14px; color: #aaa;">Siklus Lawan</p>
+    <h1>♟️ MCGG Predictor V6</h1>
+    <p style="text-align: center; font-size: 14px; color: #aaa;">Logic: Siklus Lawan 1-7 Continuous (Creep/Fate gak hitung)</p>
 
     <div class="card">
-        <label>1. Daftar Lawan + Status</label>
+        <label>1. Daftar 7 Lawan + Status</label>
         <p style="font-size: 11px; color: #aaa;">Centang jika lawan sudah eliminasi (otomatis hapus dari siklus)</p>
         
         <div id="opponents-container">
@@ -184,7 +184,7 @@
     <div id="result"></div>
 
     <div class="card">
-        <label>📅 Jadwal Lengkap (Babak 1-5)</label>
+        <label>📅 Jadwal Lengkap (Siklus Continuous)</label>
         <div class="schedule-container">
             <table class="schedule-table">
                 <thead>
@@ -201,14 +201,16 @@
     </div>
 
     <div class="warning">
-        ⚠️ <b>Logika V1:</b><br>
-        Generate By Revalotur
+        ⚠️ <b>Logika V6:</b><br>
+        - Siklus lawan 1-7 terus menerus (gak reset per babak).<br>
+        - Creep (R1,8,15...) & Fatebox (R5,12,19...) gak nghitung lawan.<br>
+        - Lawan mati otomatis dihapus dari antrian.
     </div>
 
     <script>
         let opponents = [];
 
-      Generate input fields for 7 opponents
+        // Generate input fields for 7 opponents
         function initOpponents() {
             const container = document.getElementById('opponents-container');
             container.innerHTML = '';
